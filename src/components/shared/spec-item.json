@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_spec_items",
+  "info": {
+    "displayName": "Spec Item",
+    "description": "Flexible key/value technical detail row"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "unit": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

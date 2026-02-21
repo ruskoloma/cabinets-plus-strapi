@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "rooms": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::room-type.room-type",
+      "inversedBy": "projects"
+    },
+    "media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.media-item"
+    },
+    "paints": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::paint.paint",
+      "inversedBy": "projects"
+    },
+    "stains": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::stain.stain",
+      "inversedBy": "projects"
+    },
+    "countertops": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::countertop.countertop",
+      "inversedBy": "projects"
+    },
+    "cabinets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cabinet.cabinet",
+      "inversedBy": "projects"
+    },
+    "floorings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::flooring.flooring",
+      "inversedBy": "projects"
+    },
+    "related_projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project"
+    }
+  }
+}

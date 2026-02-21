@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cabinets",
+  "info": {
+    "singularName": "cabinet",
+    "pluralName": "cabinets",
+    "displayName": "Cabinet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "technical_details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.spec-item"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "cabinets"
+    },
+    "related_cabinets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cabinet.cabinet"
+    },
+    "door_style": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::door-style.door-style",
+      "inversedBy": "cabinets"
+    },
+    "finish_type": {
+      "type": "enumeration",
+      "enum": [
+        "paint",
+        "stain"
+      ],
+      "required": true
+    },
+    "paint": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::paint.paint",
+      "inversedBy": "cabinets_painted"
+    },
+    "stain": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stain.stain",
+      "inversedBy": "cabinets_stained"
+    },
+    "media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.media-item"
+    }
+  }
+}

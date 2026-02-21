@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "countertop_types",
+  "info": {
+    "singularName": "countertop-type",
+    "pluralName": "countertop-types",
+    "displayName": "Countertop Type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "countertops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::countertop.countertop",
+      "mappedBy": "type"
+    }
+  }
+}

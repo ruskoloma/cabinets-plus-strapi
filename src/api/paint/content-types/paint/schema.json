@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paints",
+  "info": {
+    "singularName": "paint",
+    "pluralName": "paints",
+    "displayName": "Paint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "code": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "hex": {
+      "type": "string"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "paints"
+    },
+    "cabinets_painted": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cabinet.cabinet",
+      "mappedBy": "paint"
+    }
+  }
+}

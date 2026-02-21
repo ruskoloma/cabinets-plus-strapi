@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "door_styles",
+  "info": {
+    "singularName": "door-style",
+    "pluralName": "door-styles",
+    "displayName": "Door Style"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "cabinets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cabinet.cabinet",
+      "mappedBy": "door_style"
+    }
+  }
+}

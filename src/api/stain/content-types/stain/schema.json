@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stains",
+  "info": {
+    "singularName": "stain",
+    "pluralName": "stains",
+    "displayName": "Stain"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "code": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "stains"
+    },
+    "cabinets_stained": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cabinet.cabinet",
+      "mappedBy": "stain"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "collectionName": "components_shared_media_items",
+  "info": {
+    "displayName": "Media Item",
+    "description": "Image or video with optional tags and ranking for dynamic cover selection"
+  },
+  "options": {},
+  "attributes": {
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "pluginOptions": {
+        "content-manager": {
+          "edit": {
+            "width": 8
+          }
+        }
+      }
+    },
+    "room_context": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room-type.room-type"
+    },
+    "room_priority": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_default": {
+      "type": "boolean",
+      "default": false,
+      "pluginOptions": {
+        "content-manager": {
+          "edit": {
+            "width": 4
+          }
+        }
+      }
+    },
+    "paint_context": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::paint.paint"
+    },
+    "paint_priority": {
+      "type": "boolean",
+      "default": false
+    },
+    "stain_context": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stain.stain"
+    },
+    "stain_priority": {
+      "type": "boolean",
+      "default": false
+    },
+    "countertop_context": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::countertop-type.countertop-type"
+    },
+    "countertop_priority": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
